@@ -1,17 +1,19 @@
 use wasm_bindgen::prelude::*;
 
+#[cfg(target_arch = "wasm32")]
 #[wasm_bindgen]
 extern "C" {
     fn alert(s: &str);
 }
 
+#[cfg(target_arch = "wasm32")]
 #[wasm_bindgen]
 pub fn greet(name: &str) {
-    alert(&format!("Hello, {}!", name));
+    println!("Hello, {}! in wasm", name);
 }
 
-/* cannot use JavaScript function like alert in wasi */
-// #[wasm_bindgen]
-// pub fn hello(name: &str) -> String {
-//     format!("Hello, {}!", name)
-// }
+#[cfg(all(target_os="macos"))]
+pub fn greet(name: &str) {
+    println!("Hello, {}! in standard environment", name);
+}
+  
