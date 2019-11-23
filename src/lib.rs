@@ -9,3 +9,9 @@ extern "C" {
 pub fn greet(name: &str) {
     alert(&format!("Hello, {}!", name));
 }
+
+/* cannot use JavaScript function like alert in wasi */
+// #[wasm_bindgen]
+// pub fn hello(name: &str) -> String {
+//     format!("Hello, {}!", name)
+// }
