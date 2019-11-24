@@ -3,28 +3,6 @@
   <head>
     <meta charset="utf-8"/>
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
-    <script>
-      window.onload = () => {
-        const upload = document.querySelector("#upload");
-        upload.addEventListener("change", (e) => {
-          const files = e.target.files;
-          for (file of files) {
-            const reader = new FileReader();
-            reader.onload = (function(theFile) {
-              return function(e) {
-                const value = e.target.result;
-                const result = atob(value.slice(value.indexOf(',') + 1));
-                console.log({
-                  result
-                });
-              };
-            })(file);
-            reader.readAsDataURL(file);
-          }
-        });
-      }
-    </script>
   </head>
   <body>
     <button id="neko">nyan</button>

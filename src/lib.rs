@@ -44,5 +44,5 @@ pub fn greet(name: &str) {
 #[cfg(target_arch = "wasm32")]
 #[wasm_bindgen]
 pub fn greet(name: &str) {
-    println!("Hello, {}! in standard environment", name);
+    alert(&format!("Hello, {}! in wasm", name));
 }
