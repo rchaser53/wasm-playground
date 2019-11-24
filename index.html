@@ -3,8 +3,32 @@
   <head>
     <meta charset="utf-8"/>
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.js"></script>
+    <script>
+      window.onload = () => {
+        const upload = document.querySelector("#upload");
+
+        upload.addEventListener("change", (e) => {
+          const files = e.target.files;
+          for (f of files) {
+            const reader = new FileReader();
+            reader.onload = (function(theFile) {
+              return function(e) {
+                console.log(
+                  btoa(e.target.result)
+                );
+              };
+            })(f);
+
+            // Read in the image file as a data URL.
+            reader.readAsDataURL(f);
+          }
+        });
+      }
+    </script>
   </head>
   <body>
     <button id="neko">nyan</button>
+    <input type="file" id="upload" accept=".class">
   </body>
 </html>
