@@ -4,7 +4,7 @@
 
 ```
 cargo wasi build --release
-wasmtime ../wasm-playground/target/wasm32-wasi/release/wasm_playground.wasm --invoke hello "nya-n"
+wasmtime ../wasm-playground/target/wasm32-wasi/release/wasm_playground.wasm --invoke greet "nya-n"
 ```
 
 ※1 https://github.com/bytecodealliance/cargo-wasi

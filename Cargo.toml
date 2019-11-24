@@ -7,6 +7,22 @@ edition = "2018"
 [dependencies]
 wasm-bindgen = "0.2.55"
 
+[dependencies.web-sys]
+version = "0.3.32"
+features = [
+  'CssStyleDeclaration',
+  'Document',
+  'Element',
+  'HtmlElement',
+  'EventTarget',
+  'Node',
+  'Window',
+  'console'
+]
+
+[dependencies.js-sys]
+version = "0.3.32"
+
 [[bin]]
 name = "greet"
 path = "src/bin/main.rs"
